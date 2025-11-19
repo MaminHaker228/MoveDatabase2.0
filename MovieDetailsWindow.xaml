@@ -1,0 +1,212 @@
+<Window x:Class="MovieDatabase.MovieDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Информация о фильме" 
+        Height="600" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="0" Background="#2196F3" Padding="20">
+            <TextBlock x:Name="TitleText" 
+                      Text="Название фильма" 
+                      FontSize="24" 
+                      FontWeight="Bold" 
+                      Foreground="White"
+                      TextWrapping="Wrap"/>
+        </Border>
+
+        <!-- Контент -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Grid Margin="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Постер фильма -->
+                <Border Grid.Column="0" 
+                       Background="White" 
+                       BorderBrush="#DDD" 
+                       BorderThickness="1"
+                       CornerRadius="8"
+                       Margin="0,0,20,0"
+                       Height="450"
+                       VerticalAlignment="Top">
+                    <Grid>
+                       
+                        <Image x:Name="PosterImage" 
+                              Stretch="UniformToFill"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+                        
+                       
+                        <Grid x:Name="PlaceholderGrid" Background="#E0E0E0">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock Text="🎬" 
+                                         FontSize="80" 
+                                         HorizontalAlignment="Center"
+                                         Foreground="#999"/>
+                                <TextBlock Text="Постер недоступен" 
+                                         FontSize="14" 
+                                         HorizontalAlignment="Center"
+                                         Foreground="#666"
+                                         Margin="0,10,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+               
+                <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                    
+                    
+                    <Border Background="White" 
+                           Padding="15" 
+                           CornerRadius="8"
+                           Margin="0,0,0,15"
+                           BorderBrush="#DDD"
+                           BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="📅 Год выпуска" 
+                                     FontSize="12" 
+                                     Foreground="#666"
+                                     Margin="0,0,0,5"/>
+                            <TextBlock x:Name="YearText" 
+                                     Text="2024" 
+                                     FontSize="18" 
+                                     FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </Border>
+
+                    
+                    <Border Background="White" 
+                           Padding="15" 
+                           CornerRadius="8"
+                           Margin="0,0,0,15"
+                           BorderBrush="#DDD"
+                           BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="🎥 Режиссёр" 
+                                     FontSize="12" 
+                                     Foreground="#666"
+                                     Margin="0,0,0,5"/>
+                            <TextBlock x:Name="DirectorText" 
+                                     Text="Режиссёр" 
+                                     FontSize="18" 
+                                     FontWeight="SemiBold"
+                                     TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                   
+                    <Border Background="White" 
+                           Padding="15" 
+                           CornerRadius="8"
+                           Margin="0,0,0,15"
+                           BorderBrush="#DDD"
+                           BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="🎭 Категория" 
+                                     FontSize="12" 
+                                     Foreground="#666"
+                                     Margin="0,0,0,5"/>
+                            <TextBlock x:Name="CategoryText" 
+                                     Text="Категория" 
+                                     FontSize="18" 
+                                     FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Рейтинг и длительность -->
+                    <Grid Margin="0,0,0,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Рейтинг -->
+                        <Border Grid.Column="0" 
+                               Background="White" 
+                               Padding="15" 
+                               CornerRadius="8"
+                               Margin="0,0,7.5,0"
+                               BorderBrush="#DDD"
+                               BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="⭐ Рейтинг" 
+                                         FontSize="12" 
+                                         Foreground="#666"
+                                         Margin="0,0,0,5"/>
+                                <TextBlock x:Name="RatingText" 
+                                         Text="0.0" 
+                                         FontSize="24" 
+                                         FontWeight="Bold"
+                                         Foreground="#2196F3"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Длительность -->
+                        <Border Grid.Column="1" 
+                               Background="White" 
+                               Padding="15" 
+                               CornerRadius="8"
+                               Margin="7.5,0,0,0"
+                               BorderBrush="#DDD"
+                               BorderThickness="1">
+                            <StackPanel>
+                                <TextBlock Text="⏱️ Длительность" 
+                                         FontSize="12" 
+                                         Foreground="#666"
+                                         Margin="0,0,0,5"/>
+                                <TextBlock x:Name="DurationText" 
+                                         Text="120 мин" 
+                                         FontSize="18" 
+                                         FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <!-- Описание -->
+                    <Border Background="White" 
+                           Padding="15" 
+                           CornerRadius="8"
+                           BorderBrush="#DDD"
+                           BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="📝 Описание" 
+                                     FontSize="12" 
+                                     Foreground="#666"
+                                     Margin="0,0,0,10"/>
+                            <TextBlock x:Name="DescriptionText" 
+                                     Text="Описание фильма" 
+                                     FontSize="14" 
+                                     TextWrapping="Wrap"
+                                     LineHeight="22"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Кнопка закрытия -->
+        <Border Grid.Row="2" 
+               Background="White" 
+               Padding="20" 
+               BorderBrush="#DDD" 
+               BorderThickness="0,1,0,0">
+            <Button Content="Закрыть" 
+                   Style="{StaticResource SecondaryButton}"
+                   Click="CloseButton_Click"
+                   Width="150"
+                   Height="40"
+                   HorizontalAlignment="Right"/>
+        </Border>
+    </Grid>
+</Window>
